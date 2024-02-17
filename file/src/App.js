@@ -42,10 +42,14 @@ function App() {
   return (
     <>
       <TodoList todos ={todos} toggleTodo={toggleTodo}/>
-      <input ref={todoNameRef} type="text"/>
-      <button className=" bg-red-600 "onClick={handleAddTodo}>Add Todo</button>
-      <button onClick={handleClearTodos}>Clear Complete Todos</button>
-      <div>{todos.filter(todo => !todo.complete).length} left to do</div>
+      <div className="flex justify-center m-2">
+        <input className="mr-3"ref={todoNameRef} type="text"/>
+        <button className=" bg-red-600 active:bg-red-700 rounded-full p-1 pl-2 pr-2 text-sm border-2 border-red-800"onClick={handleAddTodo}>Add Todo</button>
+      </div>
+      <div className="flex justify-center m-2">
+      <button className="rounded-full bg-black text-white p-2" onClick={handleClearTodos}>Clear Complete Todos</button>
+      </div>
+      <div className="text-xl text-center p-2">{todos.filter(todo => !todo.complete).length} left to do</div>
     </ >
   )
 }
